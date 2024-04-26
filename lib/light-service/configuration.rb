@@ -23,7 +23,7 @@ module LightService
       private
 
       def _default_logger
-        logger = Logger.new("/dev/null")
+        logger = Logger.new(Gem.win_platform? ? 'NUL:' : '/dev/null')
         logger.level = Logger::WARN
         logger
       end
